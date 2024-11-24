@@ -44,11 +44,11 @@ Payload after compilation
 
 ![vanilla](https://raw.githubusercontent.com/NtDallas/Ulfberht/refs/heads/main/img/vanilla.png)
 
-Payload after compilation with icon
+Payload after compilation with an icon 
 
 ![icon](https://raw.githubusercontent.com/NtDallas/Ulfberht/refs/heads/main/img/icon.png)
 
-Payload after compilation with icon and fake sign
+Payload after compilation with an icon and fake signature
 
 ![icon](https://raw.githubusercontent.com/NtDallas/Ulfberht/refs/heads/main/img/icon_fake_sign.png)
 
