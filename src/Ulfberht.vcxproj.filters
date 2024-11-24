@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="extra">
+      <UniqueIdentifier>{03fe7706-61b5-4cd1-9576-9bf49a1677cd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="uuid.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="syscalls.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="rc4.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="k32.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="hash.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="stub.asm">
+      <Filter>src</Filter>
+    </MASM>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="utils.py">
+      <Filter>extra</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="uuid.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="syscalls.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="rc4.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="payload.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="ntdll.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="k32.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
