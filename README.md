@@ -26,7 +26,7 @@ NB :
   
 Credit :
 
-- https://www.x86matthew.com/view_post?id=writeprocessmemory_apc
-- https://institute.sektor7.net/
-- https://github.com/trickster0/TartarusGate
-- [reactos](https://reactos.org/)
+- [WriteProcessMemoryAPC](https://www.x86matthew.com/view_post?id=writeprocessmemory_apc)
+- [Sektor7](https://institute.sektor7.net/)
+- [TartarusGate](https://github.com/trickster0/TartarusGate)
+- [ReactOs](https://reactos.org/)
